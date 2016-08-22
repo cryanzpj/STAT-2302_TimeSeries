@@ -1,0 +1,65 @@
+---
+title: "Forecasting Homework 5"
+author: "Yuhao Zhao, Yz3085"
+date: "October 28, 2015"
+output: pdf_document
+---
+A)
+---
+```{r, message=FALSE, warning=FALSE}
+library('itsmr')
+library('forecast')
+data = log(
+  read.csv('http://people.stern.nyu.edu/churvich/Forecasting/Data/UNEMPLOYMENT.CSV')[,2])
+tsdisplay(data)
+model= auto.arima(data,parallel = F,trace = T,ic = "aicc",stepwise = T,allowmean = TRUE
+                  ,allowdrift = T,seasonal =FALSE,max.p = 5,max.q=5 ,max.d = 3)
+plot.Arima(model)
+```
+
+The ACF and PACF plot shows that the simple AR or MA model is not sufficient to model the log of unemployment data. Therefore, we need to use AICc to identify the ARIMA model. I tried p from 0 to 5, q from 1 to 5, and d from 0 to 3.The stationary model with lowest AICc correspond to the model ARIMA(2,1,2) without constant. The characteristic roots of the model shows that the model is stationary and invertible. 
+
+B)
+---
+```{r}
+pvalue = (1-pnorm(abs(model$coef)/sqrt(diag(model$var.coef))))*2;pvalue
+```
+
+We assusume the dimension is high enough for the z value to aprroximate t value. From the p-value we get from the model, all parameters are significantly different from 0. The model with constant has larger AICc than the model without constant, therefore, we should not include the constant.
+
+C)
+---
+```{r}
+model$coef
+```
+The complete model is $$X_t =1.6398038X_{t-1}-0.7492623X_{t-2} +\epsilon_t \ -1.5941598\epsilon_{t-1}+0.7895618\epsilon_{t-2} $$
+
+D)
+---
+```{r}
+test(model$residuals)
+```
+
+From the Ljung-Box statistics, the p-value is 0.0011< 0.05, we reject the Null hypothesis that the Residuals are iid noise. Therefore the model is not adequate, however it's the best model we can fit so far.
+
+E)
+---
+From the ACf and PACF, it shows that the there are some lag that is outside the bar. The Residuals plot also shows non-constant variance. Therefore, the residual is not a white noise series. This shows that the model is  inadequate.
+
+F)
+---
+```{r}
+fcast <- forecast(model,h=30,level = 95);fcast
+```
+
+G)
+---
+```{r}
+plot(fcast)
+grid()
+```
+
+H)
+---
+The Forecast doesn't seem reasonable, because there is a clear seasonality of the data. However the model doesn't deal with the seasonality and it gives forecast closed to the mean. The forecast inervals seems ok to me, because it tend to be wide for steps further and covers the whole range of the dataset.  
+

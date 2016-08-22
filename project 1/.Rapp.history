@@ -1,0 +1,474 @@
+1/180 +1/225
+20*21
+420/2
+1/6+4/5
+20*21/2
+210/20
+210/20/2
+data = scan("http://www.cims.nyu.edu/~cfgranda/pages/DSGA1002_fall15/material/weights.txt")
+data
+summary(data)
+ts.plot(daa)
+ts.plot(data)
+qqnorm(data)
+arma(data,1,1)
+cd
+getwc()
+getwd()
+data = read.table("http://people.stern.nyu.edu/churvich/Forecasting/Data/HousingStarts.CSV")
+data = scan("http://people.stern.nyu.edu/churvich/Forecasting/Data/HousingStarts.CSV")
+data = read.table("http://people.stern.nyu.edu/churvich/Forecasting/Data/HousingStarts.CSV",header = T)
+data = read.table("http://people.stern.nyu.edu/churvich/Forecasting/Data/HousingStarts.CSV",header = F)
+data = read.table("http://people.stern.nyu.edu/churvich/Forecasting/Data/HousingStarts.CSV",header = T)
+data
+data = read.csv("http://people.stern.nyu.edu/churvich/Forecasting/Data/HousingStarts.CSV",header = T)
+data
+ts.plot(data[,2])
+ts = data[,2]
+ts
+data[,2]
+plot(ts)
+ts.plot(ts)
+ts.plot(log(ts))
+ts.plot(diff(log(ts)))
+d  =ts.plot(diff(log(ts)))
+acf(d)
+d
+d  =diff(log(ts))
+d
+acf(d)
+par(new = T)
+pacf(d)
+library('itsmr')
+plotc(d)
+plota(d)
+plota(diff(d))
+plota(diff(ts))
+plota(diff(ts,2))
+plota(diff(ts,3))
+plota(diff(ts,4))
+plota(diff(log(ts),1))
+plota(diff(log(ts),2))
+plota(diff(log(ts),3))
+data = read.csv('http://people.stern.nyu.edu/churvich/Forecasting/Data/Google.csv')
+ts.plot(data)
+ts.plot(diff(data))
+diff(data)
+data
+dta
+data = read.csv('http://people.stern.nyu.edu/churvich/Forecasting/Data/Google.csv')[,1]
+ts.plot(diff(data))
+plota(diff(data))
+library('itsr')
+plota(diff(data))
+library('itsmr')
+plota(diff(data))
+arima(data,c(2,2,2))
+summary(arima(data,c(2,2,2)))
+test(diff(data))
+data = log(read.csv('http://people.stern.nyu.edu/churvich/Forecasting/Data/Google.csv')[,1])
+ts.plot(diff(data))
+library('itsmr')
+arima(data,c(0,1,0))
+data=(diff(data))
+ss = sum(data)
+ss
+ss = sum(data^2)
+ss
+m1 =arima(data,c()1,0,0)
+m1 =arima(data,c(1,0,0))
+m1$residual
+sum(m1$residual^2)
+predict(m1,10)
+plot(predict(m1,10))
+itsmr::forecast(x = data_new,xv = NULL,a = m1,h =2,opt = 2)
+itsmr::forecast(x = data,xv = NULL,a = m1,h =2,opt = 2)
+m1
+?arima
+froecast
+forecast
+?forecast
+?arima
+a= c(1:4)
+sort(a)
+a = c(1:10)
+a[(2+1):(6+1)]
+pv = function(data,i,r){#
+	n = length(data)#
+	o_s = sort(data)#
+	if(i <= (r+1)){#
+		return (n-1)/(n-1-2*r) * o_s[r+1] - 2*r/((n-2*r)*(n-1-2*r)) *sum(o_S[(r+1),(n-r)])#
+	}#
+	else if( i <= (n-r)){#
+		return (n-1)/(n-1-2*r) *o_s[i] - 2*r/((n-2*r)*(n-1-2*r)) *sum(o_S[(r+1),(n-r)])#
+	}#
+	else{#
+		return (n-1)/(n-1-2*r) *o_s[n-r] - 2*r/((n-2*r)*(n-1-2*r)) *sum(o_S[(r+1),(n-r)])#
+	}#
+}
+library('tseries')
+library('tserie')
+library('tserie's)
+library('tseries')
+library(help = 'tseries')
+?arima
+ls
+library(forecast)
+auto.Arima
+auto.arima
+?contor
+bivn <- mvrnorm(1000, mu = c(0, 0), Sigma = matrix(c(1, .5, .5, 1), 2))
+seq(1,2)
+seq(1,10)
+seq(1,10,0.1)
+lambda = c(1,2,0.1)#
+n = c(5,50,100)#
+t1 = n#
+t2 = n*3/5
+c(1,2;1,2)
+a = cbind(c(1,2),c(1,2))
+exp(a)
+x1 = (1 - exp(-lambda*t1[1]))^n1
+x1 = (1 - exp(-lambda*t1[1]))^n[1]
+lambda
+lambda = seq(1,2,0.1)
+lambda
+lambda = seq(1,2,0.01)
+lambda
+lambda*n
+lambda = seq(1,2,0.01)#
+n = c(5,50,100)#
+t1 = n#
+t2 = n*3/5#
+#
+x1 = (1 - exp(-lambda*t1[1]))^n[1]#
+x2 = (1 - exp(-lambda*t1[2]))^n[2]#
+x3 = (1 - exp(-lambda*t1[3]))^n[3]
+plot(x1)
+plot(x2)
+plot(x3)
+x2 = (1 - exp(-lambda*t1[2]))^n[2]
+x2
+t1[2]
+lambda = seq(1,2,0.001)
+x1 = (1 - exp(-lambda*t1[1]))^n[1]
+x2 = (1 - exp(-lambda*t1[2]))^n[2]
+x3 = (1 - exp(-lambda*t1[3]))^n[3]
+plot(x1)
+plot(x2)
+x1 = (1 - exp(-lambda*t2[1]))^n[1]
+x2 = (1 - exp(-lambda*t2[2]))^n[2]
+x3 = (1 - exp(-lambda*t2[3]))^n[3]
+plot(x1)
+plot(x2)
+plot(x3)
+plot(x3,type = 'l')
+lambda = seq(0,2,0.001)
+n = c(5,50,100)
+t1 = n
+t2 = n*3/5
+x1 = (1 - exp(-lambda*t2[1]))^n[1]
+x2 = (1 - exp(-lambda*t2[2]))^n[2]
+x3 = (1 - exp(-lambda*t2[3]))^n[3]
+plot(lambda,x1)
+plot(lambda,x3,type = 'l')
+plot(lambda,x1,type = 'l')
+par(new = T)
+plot(lambda,x2,type = 'l')
+par(new = T)
+plot(lambda,x3,type = 'l')
+plot(lambda,x1,type = 'l',ylab = c(0,1))
+par(new = T)
+plot(lambda,x2,type = 'l',ylab = c(0,1))
+par(new = T)
+plot(lambda,x3,type = 'l',ylab = c(0,1))
+plot(lambda,x1,type = 'l',ylim = c(0,1))
+par(new = T)
+plot(lambda,x2,type = 'l',ylim = c(0,1))
+par(new = T)
+plot(lambda,x3,type = 'l',ylim = c(0,1))
+c(1)*2
+seq(1,1,10)
+sig = rep(0.05,2000)
+par(new = T)
+plot(lambda,sig,ylim = c(0,1))
+length(lambds)
+length(lambda)
+sig = rep(0.05,2001)
+plot(lambda,sig,ylim = c(0,1))
+plot(lambda,sig,ylim = c(0,1),type = 'l',pch = 2)
+plot(lambda,sig,ylim = c(0,1),type = 'l',pch = 1)
+plot(lambda,sig,ylim = c(0,1),type = 'l',pch = 5)
+plot(lambda,sig,ylim = c(0,1),type = 'l',pch = 6)
+?pch
+plot(lambda,sig,ylim = c(0,1),type = 'l',pch = '-')
+plot(lambda,sig,ylim = c(0,1),type = 'p',pch = '-')
+plot(lambda,sig,ylim = c(0,1),type = 'b',pch = '-')
+plot(lambda,sig,ylim = c(0,1),type = 'b',lty = 3)
+plot(lambda,sig,ylim = c(0,1),type = 'b',lty = 2)
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+t1 = n
+t2 = n*2/5
+x1 = (1 - exp(-lambda*t2[1]))^n[1]#
+x2 = (1 - exp(-lambda*t2[2]))^n[2]#
+x3 = (1 - exp(-lambda*t2[3]))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+t2 = n*1/5
+x1 = (1 - exp(-lambda*t2[1]))^n[1]
+x1 = (1 - exp(-lambda*t2[1]))^n[1]#
+x2 = (1 - exp(-lambda*t2[2]))^n[2]#
+x3 = (1 - exp(-lambda*t2[3]))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+lambda = seq(0,2,0.001)#
+n = c(5,50,100)#
+t1 = n#
+t2 = n*1/5#
+#
+x1 = 1-(1 - exp(-lambda*t2[1]))^n[1]#
+x2 = 1-(1 - exp(-lambda*t2[2]))^n[2]#
+x3 = 1- (1 - exp(-lambda*t2[3]))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+lambda = seq(0,2,0.001)#
+n = c(5,50,100)#
+t1 = n#
+t2 = n*1/5#
+#
+x1 = (1 - exp(-lambda*t2[1]))^n[1]#
+x2 = (1 - exp(-lambda*t2[2]))^n[2]#
+x3 = (1 - exp(-lambda*t2[3]))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+lambda = seq(0,2,0.001)#
+n = c(5,50,100)#
+t1 = 0.95#
+t2 = 0.9#
+t3 =0.8#
+x1 = (1 - exp(-lambda*t1))^n[1]#
+x2 = (1 - exp(-lambda*t1))^n[2]#
+x3 = (1 - exp(-lambda*t1))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+lambda = seq(0,2,0.001)#
+n = c(5,50,100)#
+t1 = 0.95#
+t2 = 0.9#
+t3 =0.8#
+x1 = (1 - exp(-lambda*t2))^n[1]#
+x2 = (1 - exp(-lambda*t2))^n[2]#
+x3 = (1 - exp(-lambda*t2))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+lambda = seq(0,2,0.001)#
+n = c(5,50,100)#
+t1 = 0.95#
+t2 = 0.9#
+t3 =0.8#
+x1 = (1 - exp(-lambda*t3))^n[1]#
+x2 = (1 - exp(-lambda*t3))^n[2]#
+x3 = (1 - exp(-lambda*t3))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+lambda = seq(0,2,0.001)#
+n = c(5,50,100)#
+t1 = 0.95#
+t2 = 0.9#
+t3 =0.8#
+t4 = 0.5#
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+t4 = 1.2
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+lambda = seq(0,5,0.001)
+n = c(5,50,100)#
+t1 = 0.95#
+t2 = 0.9#
+t3 =0.8#
+t4 = 1.2#
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,2001)#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+sig = rep(0.05,length(lambda))
+lambda = seq(0,5,0.001)#
+n = c(5,50,100)#
+t1 = 0.95#
+t2 = 0.9#
+t3 =0.8#
+t4 = 1.2#
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,length(lambda))#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+t4 = 4#
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,length(lambda))#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+t4 = 2#
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,length(lambda))#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+t4 = 0.5#
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,length(lambda))#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+t4 = 2#
+x1 = (1 - exp(-lambda*t4))^n[1]#
+x2 = (1 - exp(-lambda*t4))^n[2]#
+x3 = (1 - exp(-lambda*t4))^n[3]#
+sig = rep(0.05,length(lambda))#
+plot(lambda,x1,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x2,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,x3,type = 'l',ylim = c(0,1))#
+par(new = T)#
+plot(lambda,sig,ylim = c(0,1),type = 'l',lty = 2)
+x = c(1: 6)
+x
+x = c(0: 6)
+choose(10,x)
+sum(choose(10,x))
+sum(choose(10,x))/2^10
+x = c(6,10)
+sum(choose(10,x))/2^10
+data = read.csv('npi.csv')
+data
+?read.cav
+?read.csv
+data = read.csv('npi.csv',fill = T)
+getwd()
+setwd("/Users/cryan/Desktop/Assignment/STAT-2302/project")
+data = read.csv('npi.csv',fill = T)
+data
+t  =lapply(seq_len(ncol(data)), function(i) x[,i])
+t  =lapply(seq_len(ncol(data)), function(i) x[i,])
+t  =lapply(seq_len(ncol(data)), function(i) data[i,])
+t
+data
+unlist(data)
+rapply(data,c)
+data
+data = read.csv('npi.csv',fill = T)[2:5]
+data
+unlist(data)
+rapply(data,c)
+data
+as.vector(data)
+matrix(data)
+as. matrix(data)
+as.matrix(data)
+as.vector(as.matrix(data))
+as.vector(t(as.matrix(data)))
+data
+data = as.numeric(as.vector(t(as.matrix(data))))
+data
+data = as.numeric(as.vector(t(as.matrix(data))))

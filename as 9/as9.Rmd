@@ -1,0 +1,51 @@
+---
+title: "Forecasting Homework 9"
+author: "Yuhao Zhao, Yz3085"
+date: "December 21, 2015"
+output: pdf_document
+---
+1
+---
+```{r,message = F}
+library('forecast')
+long = scan('http://people.stern.nyu.edu/churvich/Forecasting/Data/LONG.M')
+short = scan('http://people.stern.nyu.edu/churvich/Forecasting/Data/SHORT.M')
+data = long - short
+tsdisplay(data)
+```
+
+The interest rate appear to be stationary. The PACF cuts off and ACF dies down quickly. Therefore a AR(1) model might be reasonable. 
+
+2
+---
+```{r}
+n = length(data)
+model = lm(data[2:n] ~data[1:(n-1)] );summary(model)
+```
+
+the etimate and standard error for $\rho$ is 0.85771 and 0.04512. The t-value for $\rho =1$ is $\frac{0.85771 - 1}{0.04512}$. If we assume $\hat{\rho}$ is normally distributed,the p-value is 0.0008063775.This means $\rho$ is significantly different from 1. Therefore, the p-value provide strong evidence against the random walk. $\hat{\rho}$ is significantly less than 1 at level 0.01
+
+3
+---
+```{r}
+tsdisplay(diff(data))
+mean(diff(data))
+sd(diff(data))
+```
+
+Both of the ACF and PACF of the differenced data cut off. And the plot shows stationary behaviour. The mean is very closed to 0. Therefore the differenced data seems to be a White Noise process. That means the original series can be modeled by a random walk process.
+
+4
+---
+The test statistics $\tau_{\mu}$ we calculated is $\frac{0.85771 - 1}{0.04512} = -3.250569$. Based on Dickey-Fuller table, the 0.01 quantile is -3.51 for 100 samples and -3.46 for 250 samples. Since we have  148 samples and  -3.250569 is greater than -3.46, we can't reject the null hypothesis at level 0.01. Therefore, $\hat{\rho}$ is not significantly less than 1 at level 0.01. That means we are in favour of the driftless random walk model for the UK interest rates. We reached different conclusions because we made different assumption about the distribution of $\rho$. In problem 1, we assume gaussian distribution, then we rejected the hypothesis. In this problem we don't assume normal distribution, in fact under Null hypothesis, the asymptotic distribution is longer-tailed
+than the standard normal. The conclusion of random walk model is more statistically justifiable since we don't know the true distribution of the parameter, we can't compare the test statistics with normal critical values. At a level of 0.05, the 0.05 quantile is -2.88, then we reject the null hypothesis. We are in favour of the stationary AR(1) model
+
+
+
+
+
+
+
+
+
+

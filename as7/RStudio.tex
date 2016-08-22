@@ -1,0 +1,79 @@
+
+\documentclass[11pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx} 
+\usepackage{blkarray}
+\usepackage{amsmath}
+
+
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\usepackage{indentfirst}
+\linespread{1.2}     % 调整间距
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{FORECASTING HOMEWORK 7 }%replace X with the appropriate number
+\author{Yuhao Zhao\\ %replace with your name
+Yz3085} %if necessary, replace with your course title
+ 
+\maketitle
+\begin{problem}{1}
+\end{problem}
+a) Since $X_t = X_{t-1} + \epsilon_t $ and $\epsilon_t = e_t + \beta e_{t-1} e_{t-2}$\\
+$E(\epsilon_{t}\epsilon_{t+s}) = E(e_te_{t+s} + \beta e_{t-1}e_{t-2}e_{t+s} + \beta e_{t}e_{t+s-1}e_{t+s-2} + \beta^2 e_{t-1}e_{t-2}e_{t+s-1}e_{t+s-2}$\\
+Since $e_{t}$ are strict white noise. They are independent.\\
+if $s \neq 0$, LHS = 0\\
+Therefore, $\epsilon_{t}$ is an uncorrelated white noise, thus not linearly predictable. \\
+The best linear predictor of $X_{n+1} = E(X_n| X_{n},X_{n-1},...) + 0 = X_n$\\
+
+b) The best possible predictor of $X_{n+1} = E(X_{n+1}| X_{n},X_{n-1},...) =E(X_n+\epsilon_{n+1}|X_{n},X_{n-1},...)\\ =  E(X_n| X_{n},X_{n-1},...) + E(\epsilon_{n+1}|e_{n},e_{n-1},...) = X_n + \beta e_{t-1}e_{t-2}$\\
+
+c) {$X_t$} is not a martingale, since $E(X_{n+1}| X_{n},X_{n-1},...) \neq X_n$、、
+
+\begin{problem}{2}
+\end{problem}
+a) $X_t = \alpha X_{t-1} +e_t$\\
+$E(X_{t+1}| X_{t},X_{t-1},...) = \alpha E(X_{t}| X_{t},X_{t-1},...)+E(e_{t+1}|e_t,e_{t-1},...)$
+= $\alpha X_{t} $\\
+If $\alpha <1 $, then $\alpha X_t \neq X_t, X_t$ is not a martingale.\\ 
+
+b)  If $\alpha = 1 $,then $\alpha X_t = X_t, X_t$ is a martingale.\\
+
+\begin{problem}{3}
+\end{problem}
+a) $y_1 = \epsilon_1, y_2 = \epsilon_2+\epsilon_1,\quad ... \quad  y_t = \sum_{n = 1}^{t} \epsilon_n$\\
+$y_t - \epsilon_t = \sum_{n = 1}^{t-1} \epsilon_n = y_{t-1}$\\
+Therefore $y_t = y_{t-1}+\epsilon_t$\\
+
+b) $E(y_{t+1} - y_t|y_t,y_{t-1},...) = E(\epsilon_{t+1}|y_t,y_{t-1},... ) = E(\epsilon_{t+1}|\epsilon_t,\epsilon_{t-1},... ) $\\
+Since {$\epsilon_t$} are martingale differences. $E(\epsilon_{t+1}|\epsilon_t,\epsilon_{t-1},... ) = 0$\\
+Hence, $E(y_{t+1} - y_t|y_t,y_{t-1},...) = 0$ which means, $E(y_{t+1}|y_t,y_{t-1},...) = y_t$.\\
+Therefore, {$y_t$} is a a martingale. 
+
+
+
+\end{document}

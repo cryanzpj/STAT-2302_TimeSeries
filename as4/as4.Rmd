@@ -1,0 +1,116 @@
+---
+title: "Forecasting Homework 4"
+author: "Yuhao Zhao, Yz3085"
+date: "October 21, 2015"
+output: pdf_document
+---
+1)
+---
+$X_t = X_{t-1} - 5X_{t-2}+\epsilon_t$\
+we need to solve $Z^2 = Z - 5, Z = \frac{1 \pm \sqrt{-19}}{2} = \frac{1\pm \sqrt{19}i}{2}$\
+$|Z| = \sqrt{5} >1$, Therefore, the process is not stationary 
+
+2)
+---
+```{r}
+library('itsmr')
+data1 = read.csv("http://people.stern.nyu.edu/churvich/Forecasting/Data/HousingStarts.CSV"
+                 ,header = T)[,2]
+data2 = log(read.csv("http://people.stern.nyu.edu/churvich/Forecasting/Data/GDP.CSV"
+                 ,header = T)[,2])
+data3 =  diff(data2,1)
+data4 = diff(log(read.csv('http://people.stern.nyu.edu/churvich/Forecasting/Data/CPI.CSV'
+                 ,header = T)[,2]),1)
+```
+
+```{r}
+ts.plot(data1,main = 'Housing Starts Series')
+plota(data1)
+```
+
+The timeseries plot shows that the series seems to be stationary.From the ACF/PACF plot for Housing Starts Series, we see that ACF cuts off after lag 2, and PACF dies down. Therefore, an ARIMA(0,0,2) would be reasonable.
+
+```{r,fig.height=4}
+ts.plot(data2,main = 'log of the GDP series')
+ts.plot(diff(data2,1),main = 'first difference of log of the GDP series')
+plota(diff(data2,1))
+```
+
+The time series plot for log of the GDP series shows that the series is nonstationary. The difference of the series seems to be stationary. From the ACF/PACF plot for first difference of log of the GDP series, we see that PACF cuts off after lag 11, and ACF dies down. Therefore, an ARIMA(11,1,0) would be reasonable.
+
+For the first difference of log GDP, we have already see it's an ARIMA(11,0,0). 
+
+```{r}
+ts.plot(data4)
+ts.plot(diff(data4,1))
+plota(diff(data4,1))
+```
+
+The time series plot for the first difference of log CPI series shows that the series is nonstationary.The difference of the series seems to be stationary. The ACF/PACF shows that the ACF seems to die down, and PACF approximately cuts off after lag 11. The ARIMA(11,1,0) model may be appropriate.
+
+3)
+---
+```{r,}
+rho = acf(data3,plot = FALSE);r1 = rho$acf[2]
+b1 = (1-sqrt(1 - 4*r1^2))/(2*r1);b2 = (1+sqrt(1 - 4*r1^2))/(2*r1)
+c(b1,b2)
+```
+
+For an MA(1) process, $$b = \frac{1 \pm \sqrt{1-4\rho_1^2} }{2\rho_1}$$Since we know that in order for an MA(1) to be invertible, b should be less than 1. Thus, we choose b1 = 0.437268.
+$X_t = \epsilon_t + 0.437268\epsilon_{t-1}$
+
+4)
+---
+By Yule-walker equation for the AR(1) model, $r_1 = \hat{a_1}\times r_0,r_0 = 1$\
+Therefore, $\hat{a_1} = r_1 = 0.3670809, X_t = 0.3670809X_{t-1} +\epsilon_t$\
+To check stationary, we need to solve $Z = 0.3670809$. $|Z| < 1$, The model is stationary.
+
+5)
+---
+a)
+For the AR(2) model, we need to solve:
+$$\begin{bmatrix} r_2\\ r_1 \end{bmatrix}= \left[\begin{array}
+{rr}
+r_1 & r_0  \\
+r_0 & r_1  \\
+\end{array}\right] \begin{bmatrix} \hat{a_1}\\ \hat{a_2} \end{bmatrix}
+$$
+$$ \begin{bmatrix} \hat{a_1}\\ \hat{a_2} \end{bmatrix} = \left[\begin{array}
+{rr}
+r_1 & r_0  \\
+r_0 & r_1  \\
+\end{array}\right]^{-1} \begin{bmatrix} r_2\\ r_1 \end{bmatrix}
+$$
+
+```{r}
+r0 = 1
+r1 = rho$acf[2]
+r2 = rho$acf[3]
+a = solve(cbind(c(r1,r0),c(r0,r1)))%*%rbind(r2,r1);a
+```
+Therefore, $$a_1 = 0.33447193, a_2 = 0.08883324$$
+$$X_t = 0.33447193X_{t-1} +0.08883324X_{t-2}+ \epsilon_t$$
+
+b)  
+The solution to $$Z^2 = 0.33447193Z +0.08883324$$ is $z_1 = -0.17447, z_2 = 0.50897$. Both $$|z_1|<1$$ and $$ |z_2|<1$$ means the AR(2) model is stationary\
+
+c)
+The forecast of fisrt difference of log GDP is $$D_{2015_{q1}} = a_1D_{2014_{q4}}+a_2D_{2014_{q3}}$$
+```{r}
+n = length(data3)
+predict_diff = a[1,1]*data3[n] + a[2,1]*data3[n-1];predict_diff
+predict = tail(data2,1)+predict_diff;predict
+```
+
+The forecast of the first difference is 0.0003432605, the log gdp of 2014 q4 is 9.698165. Thefore the forecast of the 2015 q1 is 9.698165+0.0003432605 = 9.698508
+
+
+
+
+
+
+
+
+
+
+

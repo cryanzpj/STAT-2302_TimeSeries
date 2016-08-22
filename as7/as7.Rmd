@@ -1,0 +1,13 @@
+---
+title: "As7"
+author: "Yuhao Zhao,YZ3085"
+date: "November 23, 2015"
+output: pdf_document
+---
+1)
+---
+a) Since $X_t = X_{t-1} + \epsilon_t$ and $\epsilon_t  = e_t + \beta e_{t-1} e_{t-2}$ \
+$E(\epsilon_t \epsilon_{t+s}) = E(e_t e_{t+s}+ \beta e_{t-1}e_{t-2}e_{t+s}+ \beta e_t e_{t+s-1} e_{t+s-2}+\beta^2 e_{t-1} e_{t-2} e_{t+s-1} e_{t+s-2})$\
+Since $e_t$'s are strictly white noise, $e_{t}'s$ are uncorrelated.\ Thus $E(\epsilon_t \epsilon_{t+s}) = 0$, $\epsilon$ is a white noise process and not linear predictable. \
+Therefore, $E(X_{t+1}|x_t,...,x_1,...) = E(x_{t}|x_t,...,x_1,...) + E(\epsilon_{t+1}|x_t,...,x_1,...)$\
+$x_t$
